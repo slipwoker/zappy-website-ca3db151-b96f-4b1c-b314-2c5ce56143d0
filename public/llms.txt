@@ -1,0 +1,86 @@
+# שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen — Generative Engine Optimization Map
+
+> A Yemenite Jewish musician, composer, and singer specializing in traditional Yemenite Jewish liturgical and folk music (piyyut). The artist performs as a cantor (chazan) for High Holy Days and Tishrei holidays, as a paytan for bar mitzvahs, Torah dedications, and Shabbat Chatan ceremonies, and as a wedding/event singer. The brand is rooted in authentic Yemenite Jewish musical heritage with a spiritual, cultural, and celebratory atmosphere. The website is envisioned as a single long-scroll page with a hero section (image/video), a bio popup, a services strip with individual popups, a YouTube video feed, and a TikTok posts feed.
+
+---
+
+## Pages
+
+### בית
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app
+התחברו לעומק הרוחני של המוזיקה התימנית עם הפייטן שחר עמרם. חזנות לימים נוראים, פיוטים לבר מצווה, שירת חתונה וחינה בליווי צלילי תימן אותנטיים. הזמינו את הקדושה והשמחה לאירוע שלכם עוד היום.
+
+### שירותים
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/services
+מחפש פייטן לימים נוראים, זמר לחינה או חזן לבר מצווה? שחר עמרם מגיש שירותי פיוט תימני, חזנות ושירת אירועים במסורת יהודי תימן. לחץ לצפייה בהיצע המלא והתאם את הקול המושלם לשמחה שלך.
+
+### אודות
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/about
+הכירו את שחר עמרם, פייטן ויוצר הנושא עמו את מורשת הפיוט התימני מדור לדור. ממזמורי שבת חתן ועד תפילות הימים הנוראים – גלו את האיש, הקול והשליחות המוזיקלית שמאחורי צלילי תימן.
+
+### צור קשר
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/contact
+רוצה להזמין את שחר עמרם לחזנות, בר מצווה או חתונה? צור קשר עוד היום לתיאום תאריך, שאלות על רפרטואר תימני או הזמנת פיוט אישי. השאירו פרטים ונחזור אליכם מיד עם צלילי תימן מרגשים.
+
+## Legal & Policy
+
+### Privacy Policy
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+## How to Contact Us
+
+- (No contact details configured yet.)
+
+### Contact form
+- URL: https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/contact
+- Endpoint: https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/api/email/contact-form
+- Method: POST
+- Content-Type: application/json
+- Fields:
+  - `name` (text, required)
+  - `email` (email, required)
+  - `phone` (tel, required)
+  - `message` (textarea, required)
+  - `privacy_consent` (checkbox, required)
+
+---
+
+# Business Context (for LLM understanding)
+
+## About שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen
+A Yemenite Jewish musician, composer, and singer specializing in traditional Yemenite Jewish liturgical and folk music (piyyut). The artist performs as a cantor (chazan) for High Holy Days and Tishrei holidays, as a paytan for bar mitzvahs, Torah dedications, and Shabbat Chatan ceremonies, and as a wedding/event singer. The brand is rooted in authentic Yemenite Jewish musical heritage with a spiritual, cultural, and celebratory atmosphere. The website is envisioned as a single long-scroll page with a hero section (image/video), a bio popup, a services strip with individual popups, a YouTube video feed, and a TikTok posts feed.
+
+## Services/Products
+- זמר לחתונות, בר מצוות ואירועים שונים
+- חזן/פייטן לימים הנוראים ולחגי תשרי
+- פייטן לבר מצווה
+- פייטן להכנסת ספר תורה
+- פייטן לשבתות חתן
+
+## Target Audience
+- משפחות לאירועים כגון חתונות, בר מצוות, הכנסת ספר תורה, שבתות חתן, וקהל המחפש חזן/פייטן לימים הנוראים וחגי תשרי
+- משפחות לאירועים
+- ועדות בתי כנסת
+- חובבי מוזיקה יהודית
+
+## Industry
+Music & Entertainment
+
+---
+
+# Machine-readable feeds
+
+- Sitemap (XML): https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/sitemap.xml
+- Robots: https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/robots.txt
+- Flattened page text (for LLMs): https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/llms-full.txt

@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>פייטן תימני מסורתי לאירוע ולנשמה — שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen</title>
+    <meta name="description" content="התחברו לעומק הרוחני של המוזיקה התימנית עם הפייטן שחר עמרם. חזנות לימים נוראים, פיוטים לבר מצווה, שירת חתונה וחינה בליווי צלילי תימן אותנטיים. הזמינו את הקדושה והשמחה לאירוע שלכם עוד היום.">
+    <meta name="keywords" content="פייטן, תימנית, מוזיקה תימנית, פיוט תימני, זמר לחתונה">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: 'ca3db151-b96f-4b1c-b314-2c5ce56143d0',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        var clickMeta = {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        };
+        
+        trackEvent('click', clickMeta);
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        var navMeta = {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        };
+        
+        trackEvent('navigation', navMeta);
+      }
+    }, true);
+  }
+  
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="פייטן תימני מסורתי לאירוע ולנשמה — שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen">
+    <meta property="og:description" content="התחברו לעומק הרוחני של המוזיקה התימנית עם הפייטן שחר עמרם. חזנות לימים נוראים, פיוטים לבר מצווה, שירת חתונה וחינה בליווי צלילי תימן אותנטיים. הזמינו את הקדושה והשמחה לאירוע שלכם עוד היום.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="פייטן תימני מסורתי לאירוע ולנשמה — שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen">
+    <meta name="twitter:description" content="התחברו לעומק הרוחני של המוזיקה התימנית עם הפייטן שחר עמרם. חזנות לימים נוראים, פיוטים לבר מצווה, שירת חתונה וחינה בליווי צלילי תימן אותנטיים. הזמינו את הקדושה והשמחה לאירוע שלכם עוד היום.">
+    <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .skip-link { position: absolute; top: 0; left: 0; transform: translateY(-200%); padding: 12px 18px; background: var(--bg-dark, #1a1a1a); color: var(--text-light, #fff); font-weight: 600; border-radius: 0 0 8px 0; z-index: 10000; }
+    .skip-link:focus { transform: none; outline: 2px solid var(--ring, #fff); outline-offset: 2px; }
+    :focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 3px; }
+  </style>
+
+
+  
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script>window.ZAPPY_WEBSITE_ID = "ca3db151-b96f-4b1c-b314-2c5ce56143d0"; window.ZAPPY_API_BASE = "https://api.zappy5.com";</script>
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+      [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 10px !important; padding-right: 28px !important; }
+      .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus (exclude catalog sub-menus that use <a> children instead of <li>) */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))):not(:has(> a)), .sub-menu:not(:has(li)):not(:has(> a)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .navbar .sub-menu.mobile-expanded, .nav-menu .sub-menu.mobile-expanded, #navMenu .sub-menu.mobile-expanded { max-height: none !important; overflow-y: visible !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-dark) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-dark) !important; white-space: normal !important; }
+        .sub-menu .zappy-nav-child > a { padding-left: 28px !important; font-size: 0.9em !important; opacity: 0.85 !important; }
+        [dir="rtl"] .sub-menu .zappy-nav-child > a, html[lang="he"] .sub-menu .zappy-nav-child > a, html[lang="ar"] .sub-menu .zappy-nav-child > a { padding-left: 0 !important; padding-right: 28px !important; }
+        .sub-menu .zappy-nav-parent > a { font-weight: 600 !important; }
+        .nav-menu.active, #navMenu.active { max-width: 100vw !important; overflow-x: hidden !important; box-sizing: border-box !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-dark) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      html[dir="rtl"] .whatsapp-float { right: 20px !important; left: auto !important; }
+      html[dir="ltr"] .whatsapp-float, html:not([dir]) .whatsapp-float { left: 20px !important; right: auto !important; }
+      html[dir="rtl"] #mic-access-tool-general-button, html[dir="rtl"] .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="rtl"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="rtl"] ._access-icon { left: 20px !important; right: auto !important; }
+      html[dir="ltr"] #mic-access-tool-general-button, html[dir="ltr"] .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool .mic-access-tool-general-button,
+      html[dir="ltr"] #mic-init-access-tool #mic-access-tool-general-button,
+      html[dir="ltr"] ._access-icon,
+      html:not([dir]) #mic-access-tool-general-button, html:not([dir]) .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool .mic-access-tool-general-button,
+      html:not([dir]) #mic-init-access-tool #mic-access-tool-general-button,
+      html:not([dir]) ._access-icon { right: 20px !important; left: auto !important; }
+      @media (max-width: 768px) { .whatsapp-float { display: flex !important; } }
+      @media (min-width: 769px) { .whatsapp-float { display: flex !important; } }
+      @media (max-width: 768px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+      @media (min-width: 769px) {
+        #mic-access-tool-general-button, .mic-access-tool-general-button,
+        #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+        ._access-icon { display: flex !important; visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+        #mic-access-tool-box.opened-mic-access-tool, .mic-access-tool-box.opened-mic-access-tool,
+        #mic-init-access-tool #mic-access-tool-box.opened-mic-access-tool {
+          visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;
+        }
+      }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main">דלג לתוכן הראשי</a>
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+  
+  <button class="phone-header-btn" data-phone="[business_phone]" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+
+  <div class="nav-container">
+    <div class="nav-right-group"><div class="nav-brand">
+      <a href="/" class="logo-link"><img class="logo" src="/assets/site-----image-1.webp" alt="שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen"></a>
+    </div><ul class="nav-menu" id="navMenu"><li><a href="/">בית</a></li><li><a href="/services">שירותים</a></li><li><a href="/about">אודות</a></li></ul></div>
+    
+    
+    
+    <div class="nav-cta-container">
+      <a href="/contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+<script>
+
+// Navbar Mobile Menu Toggle and Contrast Fix
+(function() {
+  // Use 'load' event instead of 'DOMContentLoaded' to ensure we run AFTER all other scripts
+  window.addEventListener('load', function() {
+    
+    // FIX MOBILE BUTTON CONTRAST
+    // Detect navbar background color and apply contrasting color to mobile buttons
+    const navbar = document.querySelector('.navbar, nav, header');
+    if (!navbar) {
+      console.log('[Navbar] Navbar element not found');
+      return;
+    }
+    
+    // DECLARE VARIABLES EARLY to avoid Temporal Dead Zone errors
+    // These are used in multiple places below
+    let mobileToggle = document.getElementById('mobileToggle') ||
+                       document.querySelector('.mobile-toggle') ||
+                       document.querySelector('.hamburger') ||
+                       document.querySelector('.hamburger-menu') ||
+                       document.querySelector('.menu-toggle') ||
+                       document.querySelector('.burger-menu') ||
+                       document.querySelector('[aria-label="Menu"]') ||
+                       document.querySelector('[aria-label="תפריט"]');
+    
+    const phoneBtn = document.querySelector('.phone-header-btn');
+    
+    const computedStyle = window.getComputedStyle(navbar);
+    let bgColor = computedStyle.backgroundColor;
+    
+    console.log('[Navbar] Initial navbar background:', bgColor);
+    
+    // Check if background is transparent or rgba with 0 alpha
+    const isTransparent = bgColor === 'transparent' || 
+                         bgColor === 'rgba(0, 0, 0, 0)' ||
+                         (bgColor.startsWith('rgba') && bgColor.includes(', 0)'));
+    
+    if (isTransparent) {
+      // Check for background-image or gradient
+      const bgImage = computedStyle.backgroundImage;
+      if (bgImage && bgImage !== 'none') {
+        console.log('[Navbar] Navbar has background image/gradient, using dark text');
+        bgColor = 'rgb(240, 240, 240)'; // Assume light background
+      } else {
+        // Transparent navbar - check body background
+        const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+        console.log('[Navbar] Navbar transparent, using body background:', bodyBg);
+        bgColor = bodyBg;
+      }
+    }
+    
+    // Calculate luminance to determine if background is light or dark
+    const rgb = bgColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      
+      // Mobile button colors are set by Claude's AI-generated CSS (same as .nav-menu a)
+      // No dynamic color overrides needed - colors come from the generated navbar CSS
+      console.log('[Navbar] Mobile button colors preserved from Claude CSS (luminance:', luminance.toFixed(2) + ')');
+      
+      // FIX ICON SIZES - Ensure SVGs are properly sized and visible
+      // INJECT CRITICAL CSS TO OVERRIDE ANY CONFLICTING RULES
+      const criticalCSS = document.createElement('style');
+      criticalCSS.id = 'zappy-mobile-nav-fix';
+      const htmlLang = document.documentElement.lang || 'en';
+      const htmlDir = document.documentElement.dir || 'ltr';
+      // Check both dir attribute AND lang for RTL detection
+      // dir="rtl" is the most reliable indicator
+      const isRTL = htmlDir === 'rtl' || htmlLang === 'he' || htmlLang === 'ar';
+      
+      criticalCSS.textContent = `
+        /* Hide mobile buttons on desktop, show only on mobile */
+        @media (min-width: 769px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            display: none !important;
+          }
+        }
+        
+        /* Show and position mobile buttons correctly on mobile */
+        @media (max-width: 768px) {
+          .navbar,
+          nav.navbar {
+            min-height: 70px !important;
+          }
+
+          .mobile-toggle,
+          .phone-header-btn {
+            position: absolute !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+            transform: none !important;
+            z-index: 1001 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 6px !important;
+            background: none !important;
+            color: var(--nav-text, var(--text-dark)) !important;
+            touch-action: manipulation !important;
+            -webkit-tap-highlight-color: transparent !important;
+          }
+
+          html[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          body[data-zappy-site-type="ecommerce"] .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] header .phone-header-btn,
+          html[data-zappy-site-type="ecommerce"] nav .phone-header-btn {
+            display: none !important;
+            visibility: hidden !important;
+            width: 0 !important;
+            height: 0 !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+          
+          /* LTR positioning (default): hamburger LEFT, phone RIGHT */
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+          html[dir="ltr"] .mobile-toggle {
+            left: 12px !important;
+            right: auto !important;
+          }
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+          html[dir="ltr"] .phone-header-btn {
+            right: 12px !important;
+            left: auto !important;
+          }
+          
+          /* RTL positioning: hamburger RIGHT, phone LEFT */
+          html[dir="rtl"] .mobile-toggle,
+          html[lang="he"] .mobile-toggle,
+          html[lang="ar"] .mobile-toggle {
+            right: 12px !important;
+            left: auto !important;
+          }
+          html[dir="rtl"] .phone-header-btn,
+          html[lang="he"] .phone-header-btn,
+          html[lang="ar"] .phone-header-btn {
+            left: 12px !important;
+            right: auto !important;
+          }
+          
+          /* CRITICAL: Ensure nav-container has min-height on mobile */
+          /* All children are positioned absolutely/fixed on mobile, so height:auto collapses to 0 */
+          .nav-container {
+            min-height: 70px !important;
+            position: relative !important;
+          }
+          
+          /* Ensure SVG icons are properly sized and inherit color */
+          .mobile-toggle svg,
+          .phone-header-btn svg {
+            width: 24px !important;
+            height: 24px !important;
+            /* Don't force display - let JavaScript control hamburger/close toggle */
+          }
+          
+          /* Reset nav-cta-container on mobile - remove desktop box-shadow/padding */
+          /* that creates a visible ghost box when CTA button is hidden */
+          .nav-cta-container {
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide nav-cta-container entirely on mobile when there's no lang-switcher */
+          /* (only the CTA button is inside, and it's hidden on mobile) */
+          .nav-cta-container:not(:has(.lang-switcher)) {
+            display: none !important;
+          }
+          
+          /* CRITICAL: Prevent hero image fade gradient from bleeding over headline text */
+          /* The .image-fade-gradient has bottom: -30px (extends below parent) */
+          /* On mobile stacked layout, this overlaps the h1 text below the image */
+          .hero-image-column {
+            overflow: hidden !important;
+          }
+          .image-fade-gradient {
+            bottom: 0 !important;
+          }
+          
+          /* Hide desktop language switcher on mobile - hamburger menu handles it */
+          /* High specificity to override stored CSS */
+          .lang-switcher,
+          .nav-cta-container .lang-switcher,
+          .nav-container .lang-switcher,
+          .navbar .lang-switcher,
+          .navbar .nav-cta-container .lang-switcher {
+            display: none !important;
+          }
+        }
+      `;
+      
+      // Remove existing fix if present and inject new one
+      const existing = document.getElementById('zappy-mobile-nav-fix');
+      if (existing) existing.remove();
+      document.head.appendChild(criticalCSS);
+      
+      console.log('[Navbar] Critical CSS injected for mobile nav positioning');
+      
+      // ONLY apply inline positioning styles on mobile viewport
+      // On desktop, the CSS handles hiding these buttons with display: none
+      // Inline styles were breaking desktop layout by overriding CSS
+      const isMobileViewport = window.innerWidth <= 768;
+      
+      if (mobileToggle) {
+        // Icon sizing applies to all viewports for consistency
+        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+        const closeIcon = mobileToggle.querySelector('.close-icon');
+        
+        if (hamburgerIcon) {
+          hamburgerIcon.style.setProperty('width', '24px', 'important');
+          hamburgerIcon.style.setProperty('height', '24px', 'important');
+          hamburgerIcon.style.setProperty('display', 'block', 'important'); // Show hamburger by default
+        }
+        if (closeIcon) {
+          closeIcon.style.setProperty('width', '24px', 'important');
+          closeIcon.style.setProperty('height', '24px', 'important');
+          closeIcon.style.setProperty('display', 'none', 'important'); // Hide close icon by default
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          mobileToggle.style.setProperty('position', 'absolute', 'important');
+          mobileToggle.style.setProperty('top', '0', 'important');
+          mobileToggle.style.setProperty('bottom', '0', 'important');
+          mobileToggle.style.setProperty('margin-top', 'auto', 'important');
+          mobileToggle.style.setProperty('margin-bottom', 'auto', 'important');
+          mobileToggle.style.setProperty('transform', 'none', 'important');
+          mobileToggle.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          
+          console.log('[Navbar] Mobile toggle positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          mobileToggle.style.removeProperty('position');
+          mobileToggle.style.removeProperty('top');
+          mobileToggle.style.removeProperty('transform');
+          mobileToggle.style.removeProperty('z-index');
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared mobile toggle inline positioning');
+        }
+      }
+      
+      if (phoneBtn) {
+        // Icon sizing applies to all viewports
+        const phoneIcon = phoneBtn.querySelector('svg');
+        if (phoneIcon) {
+          phoneIcon.style.width = '24px';
+          phoneIcon.style.height = '24px';
+          phoneIcon.setAttribute('width', '24');
+          phoneIcon.setAttribute('height', '24');
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          phoneBtn.style.setProperty('position', 'absolute', 'important');
+          phoneBtn.style.setProperty('top', '0', 'important');
+          phoneBtn.style.setProperty('bottom', '0', 'important');
+          phoneBtn.style.setProperty('margin-top', 'auto', 'important');
+          phoneBtn.style.setProperty('margin-bottom', 'auto', 'important');
+          phoneBtn.style.setProperty('transform', 'none', 'important');
+          phoneBtn.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          
+          console.log('[Navbar] Phone button positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          phoneBtn.style.removeProperty('position');
+          phoneBtn.style.removeProperty('top');
+          phoneBtn.style.removeProperty('transform');
+          phoneBtn.style.removeProperty('z-index');
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared phone button inline positioning');
+        }
+      }
+    } else {
+      console.log('[Navbar] Could not parse background color:', bgColor);
+    }
+    
+    // MOBILE MENU TOGGLE
+    // Re-query in case DOM changed (mobileToggle already declared at top of function)
+    mobileToggle = document.getElementById('mobileToggle') ||
+                   document.querySelector('.mobile-toggle') ||
+                   document.querySelector('.hamburger') ||
+                   document.querySelector('.hamburger-menu') ||
+                   document.querySelector('.menu-toggle') ||
+                   document.querySelector('.burger-menu') ||
+                   document.querySelector('[aria-label="Menu"]') ||
+                   document.querySelector('[aria-label="תפריט"]');
+    
+    // EXPANDED SEARCH: Find nav menu by ID or class
+    const navMenu = document.getElementById('navMenu') ||
+                  document.querySelector('.nav-menu') ||
+                  document.querySelector('.nav-links') ||
+                  document.querySelector('nav ul:not(.submenu)');
+    
+    if (!mobileToggle || !navMenu) {
+      console.log('[Navbar] Mobile toggle or menu not found:', { toggle: !!mobileToggle, menu: !!navMenu });
+      return;
+    }
+    
+    // Ensure navMenu has ID for CSS targeting
+    if (!navMenu.id) {
+      navMenu.id = 'navMenu';
+    }
+    
+    console.log('[Navbar] Initializing mobile menu...');
+    
+    // Remove any existing event listeners by cloning the button
+    const newToggle = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+    
+    // Toggle menu handler (shared by click and touchend)
+    function handleToggle(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+      const closeIcon = newToggle.querySelector('.close-icon');
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
+        document.body.style.overflow = 'hidden';
+        console.log('[Navbar] Menu opened');
+      }
+    }
+    
+    // Use click for desktop/emulation and touchend as iOS Safari fallback.
+    // Prevent double-fire with a timestamp guard.
+    var lastToggleTime = 0;
+    function guardedToggle(e) {
+      var now = Date.now();
+      if (now - lastToggleTime < 300) return;
+      lastToggleTime = now;
+      handleToggle(e);
+    }
+    
+    newToggle.addEventListener('click', guardedToggle);
+    newToggle.addEventListener('touchend', guardedToggle);
+    
+    // Close menu when clicking nav links (but NOT dropdown toggles)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Don't close if it's a dropdown child (unless it's a real navigation link)
+        if (this.getAttribute('href') === '#') return;
+        
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed (link clicked)');
+      });
+    });
+    
+    // DROPDOWN MENU TOGGLE (for mobile and touch devices)
+    var dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = this.closest('.nav-dropdown');
+        if (!parent) return;
+        
+        // Close other open dropdowns at the same level
+        var siblings = parent.parentNode.querySelectorAll('.nav-dropdown.open');
+        siblings.forEach(function(sib) {
+          if (sib !== parent) sib.classList.remove('open');
+        });
+        
+        parent.classList.toggle('open');
+        console.log('[Navbar] Dropdown toggled:', parent.classList.contains('open') ? 'open' : 'closed');
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        var openDropdowns = document.querySelectorAll('.nav-dropdown.open');
+        openDropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+      }
+    });
+    
+    console.log('[Navbar] Dropdown handlers initialized for ' + dropdownToggles.length + ' dropdowns');
+    
+    // Phone button functionality (phoneBtn already declared at top of function)
+    if (phoneBtn) {
+      phoneBtn.addEventListener('click', function() {
+        // Get phone number from placeholder in page or use default
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const phoneNumber = phoneLinks.length > 0 
+          ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+          : '[business_phone]';
+        
+        window.location.href = 'tel:' + phoneNumber;
+        console.log('[Navbar] Phone button clicked');
+      });
+    }
+    
+    console.log('[Navbar] Mobile menu initialized successfully');
+    
+    // WhatsApp button visibility is now controlled via CSS (siteSettings).
+    // No JS-based desktop hiding — the button is visible on both mobile and desktop by default.
+  });
+})();
+
+</script>
+  
+  <main id="main">
+    <section data-band-index="0" class="index-hero-section" data-layout-spec="בית-hero" data-hero-type="fullscreen-scrim">
+  <div class="index-hero-section__media">
+    <img loading="eager" fetchpriority="high" data-hero-bg="true" data-placeholder="index-hero-image-1" data-context="A cinematic, bright portrait of Shahar Amram, a Yemenite Jewish musician in formal attire (suit or traditional Yemenite garb), singing passionately during a spiritual or family celebration event. The background shows warm ambient light, possibly a synagogue interior or a wedding hall with soft bokeh, conveying authenticity, heritage, and emotional depth. No text or logos on the image." width="1200" height="600" src="/assets/site-index-hero-image-1.webp" alt="שחר עמרם מופיע באירוע מוזיקלי מסורתי" class="index-hero-section__bg-image">
+  </div>
+  <div class="index-hero-section__scrim" aria-hidden="true"></div>
+  <div class="index-hero-section__overlay">
+    <div class="index-hero-section__card">
+      <div class="index-hero-section__card-inner">
+        <h1 class="index-hero-section__title">שחר עמרם — צלילי תימן</h1>
+        <h3 class="index-hero-section__subtitle">פייטן, חזן, יוצר וזמר — מנגינות יהודיות־תימניות אותנטיות לכל אירוע ולכל תפילה</h3>
+        <div class="index-hero-section__actions">
+          <a href="#contact" class="index-hero-section__btn index-hero-section__btn--primary">צרו קשר</a>
+          <a href="#services" class="index-hero-section__btn index-hero-section__btn--secondary">השירותים שלנו</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="index-hero-section__divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="goldRuleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#C9A84C" stop-opacity="0"></stop>
+          <stop offset="20%" stop-color="#C9A84C" stop-opacity="0.9"></stop>
+          <stop offset="50%" stop-color="#E8C96A" stop-opacity="1"></stop>
+          <stop offset="80%" stop-color="#C9A84C" stop-opacity="0.9"></stop>
+          <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="80" fill="#FDFAF5"></rect>
+      <path d="M0,80 L0,40 Q50,35 100,42 T200,38 Q250,42 300,35 T400,40 Q450,38 500,42 T600,35 Q650,40 700,38 T800,42 Q850,35 900,40 T1000,38 Q1050,42 1100,35 T1200,40 L1200,80 Z" fill="var(--bg-light)"></path>
+      <rect x="100" y="48" width="1000" height="2" fill="url(#goldRuleGradient)" rx="1"></rect>
+    </svg>
+  </div>
+</section>
+
+<section data-band-index="1" class="index-about-preview-section" data-layout-spec="בית-about-preview" dir="rtl">
+  <div class="index-about-preview-section__container">
+    
+    <!-- Decorative manuscript watermark -->
+    <div class="index-about-preview-section__watermark" aria-hidden="true">
+      <svg viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg">
+        <path d="M130 20 L210 60 L210 140 L130 180 L50 140 L50 60 Z" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"></path>
+        <path d="M130 40 L190 70 L190 130 L130 160 L70 130 L70 70 Z" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></path>
+        <path d="M130 80 L130 140 M90 80 L90 120 M170 80 L170 120" stroke="currentColor" stroke-width="0.8" opacity="0.25"></path>
+        <circle cx="130" cy="100" r="12" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.35"></circle>
+        <path d="M130 88 L130 112 M118 100 L142 100" stroke="currentColor" stroke-width="0.8" opacity="0.3"></path>
+      </svg>
+    </div>
+
+    <!-- Corner Arabesque Decoration -->
+    <div class="index-about-preview-section__corner-arabesque" aria-hidden="true">
+      <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+        <path d="M180 0 Q150 30 120 60 Q90 90 60 120 Q30 150 0 180" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.12"></path>
+        <path d="M180 20 Q160 40 140 65 Q120 90 100 115 Q80 140 60 160 Q40 175 20 180" fill="none" stroke="currentColor" stroke-width="1" opacity="0.08"></path>
+        <circle cx="160" cy="20" r="3" fill="currentColor" opacity="0.1"></circle>
+        <circle cx="140" cy="40" r="2" fill="currentColor" opacity="0.08"></circle>
+        <circle cx="120" cy="60" r="2.5" fill="currentColor" opacity="0.09"></circle>
+      </svg>
+    </div>
+
+    <!-- Two-Column Layout -->
+    <div class="index-about-preview-section__grid">
+      
+      <!-- Text Column (Right/Start) -->
+      <div class="index-about-preview-section__text-col">
+        
+        <!-- Gold ornamental divider above H2 -->
+        <div class="index-about-preview-section__gold-divider" aria-hidden="true">
+          <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+            <polygon points="100,6 110,10 100,14 90,10" fill="currentColor" opacity="0.8"></polygon>
+            <line x1="120" y1="10" x2="180" y2="10" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+            <circle cx="90" cy="10" r="1.5" fill="currentColor" opacity="0.5"></circle>
+            <circle cx="108" cy="10" r="1.5" fill="currentColor" opacity="0.5"></circle>
+            <circle cx="112" cy="10" r="1.5" fill="currentColor" opacity="0.5"></circle>
+            <circle cx="130" cy="10" r="1.5" fill="currentColor" opacity="0.5"></circle>
+          </svg>
+        </div>
+
+        <h2 class="index-about-preview-section__heading">המסע המוזיקלי שלי</h2>
+        
+        <div class="index-about-preview-section__bio-summary">
+          <p>שחר עמרם, יוצר וזמר יהודי-תימני, נושא עמו מסורת עתיקה של שירת קודש ופיוט שהדהדה בבתי הכנסת של צנעא. כחזן ופייטן, הוא משלב בין העומק הרוחני של המוזיקה התימנית לבין העיבודים העכשוויים, ויוצר חוויית תפילה וחגיגה ייחודית שמחברת בין דורות.</p>
+          <p>במהלך השנים הופיע שחר באירועים מגוונים – החל מימים נוראים וחגי תשרי, עבור בבר מצוות והכנסות ספר תורה, ועד לחתונות ושבתות חתן. כל הופעה טבולה בניגון הלב התימני, בקולו העשיר ובנוכחותו הבימתית החמה, המעניקים כבוד למילה הכתובה ולרגעים המקודשים בחיים.</p>
+        </div>
+
+        <!-- CTA Button for Full Bio Overlay -->
+        <button class="index-about-preview-section__bio-btn" aria-label="פתח ביוגרפיה מלאה">
+          <span>קרא עוד על דרכי המוזיקלית</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Image Column (Left/End) with Framed Portrait & Peeking Backplate -->
+      <div class="index-about-preview-section__image-col">
+        <div class="index-about-preview-section__image-frame">
+          
+          <!-- Peeking secondary parchment backplate -->
+          <div class="index-about-preview-section__backplate" aria-hidden="true"></div>
+          
+          <!-- Portrait Image -->
+          <div class="index-about-preview-section__portrait-wrapper">
+            <img loading="lazy" decoding="async" data-placeholder="index-about-preview-image-1" data-context="A crisp daylight portrait of Shahar Amram, a Yemenite Jewish musician, wearing a traditional dark kippah and a subtle embroidered vest, standing against a warm parchment-toned background with soft natural lighting, editorial photography style" width="600" height="400" src="/assets/site-index-about-preview-image-1.webp" alt="דיוקן של שחר עמרם, מוזיקאי יהודי-תימני" class="index-about-preview-section__portrait-img">
+          </div>
+          
+          <!-- Thin gold frame border -->
+          <div class="index-about-preview-section__frame-border" aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Divider: Shallow inward curve with faint corner ornaments -->
+    <div class="index-about-preview-section__divider-wrapper" aria-hidden="true">
+      <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="corner-ornament-left" d="M20,40 Q25,30 35,35 Q30,45 20,40 Z" fill="#FDFAF5" opacity="0.15"></path>
+          <path id="corner-ornament-right" d="M1180,40 Q1175,30 1165,35 Q1170,45 1180,40 Z" fill="#FDFAF5" opacity="0.15"></path>
+        </defs>
+        <path d="M0,80 L0,45 Q150,25 300,42 T600,38 Q750,42 900,35 T1200,45 L1200,80 Z" fill="#FDFAF5" opacity="0.95"></path>
+        <path d="M0,80 L0,48 Q150,28 300,45 T600,41 Q750,45 900,38 T1200,48 L1200,80 Z" fill="#FDFAF5"></path>
+        <use href="#corner-ornament-left" x="0" y="0"></use>
+        <use href="#corner-ornament-right" x="0" y="0"></use>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- Full Biography Overlay (Folio-Style Archival Manuscript Page) -->
+  <div class="index-about-preview-section__overlay" id="bio-overlay" aria-hidden="true">
+    <div class="index-about-preview-section__overlay-bg"></div>
+    <div class="index-about-preview-section__overlay-panel">
+      
+      <!-- Close Button (Top Outer Corner) -->
+      <button class="index-about-preview-section__overlay-close" aria-label="סגור חלון ביוגרפיה">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </button>
+
+      <!-- Manuscript Page Content -->
+      <div class="index-about-preview-section__manuscript">
+        <div class="index-about-preview-section__manuscript-header">
+          <div class="index-about-preview-section__gold-divider" aria-hidden="true">
+            <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="10" x2="80" y2="10" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+              <polygon points="100,6 110,10 100,14 90,10" fill="currentColor" opacity="0.8"></polygon>
+              <line x1="120" y1="10" x2="180" y2="10" stroke="currentColor" stroke-width="1.5" opacity="0.6"></line>
+            </svg>
+          </div>
+          <h2 class="index-about-preview-section__overlay-heading">שחר עמרם – הסיפור המלא</h2>
+        </div>
+        
+        <div class="index-about-preview-section__manuscript-body">
+          <p>שחר עמרם נולד וגדל בישראל, נצר למשפחה יהודית-תימנית שעלתה ארצה מצנעא בראשית המאה העשרים. סבו, רבי יוסף עמרם זצ"ל, היה מגדולי החזנים והפייטנים בצנעא, וממנו ירש שחר את האהבה לשירת הקודש התימנית ואת הידע המעמיק במסורת הפיוט.</p>
+          <p>כבר בילדותו התבלט קולו העשיר והמלטף, והוא החל לשמש כחזן צעיר בבית הכנסת השכונתי. בגיל 16 הוזמן לראשונה לשמש כפייטן בטקס בר מצווה, ומאז לא הפסיק. שחר העמיק את ידיעותיו בלימודי מוזיקה תימנית מסורתית, לצד לימודי חזנות אשכנזית וספרדית, מתוך רצון להעשיר את ארגז הכלים המוזיקלי שלו.</p>
+          <p>כיום, שחר מופיע בקביעות באירועים מגוונים ברחבי הארץ: הוא משמש כחזן ופייטן לימים נוראים ולחגי תשרי בבתי כנסת, מופיע כפייטן לבר מצווה ולהכנסת ספר תורה, ומנחה שבתות חתן באווירה משפחתית וחגיגית. כמו כן, הוא מופיע כזמר לחתונות, חינות ואירועים פרטיים, ומביא עמו את צלילי תימן האותנטיים.</p>
+          <p>החזון המוזיקלי של שחר הוא להנגיש את הפיוט התימני לדור הצעיר, תוך שמירה על האותנטיות והעומק הרוחני של המסורת. הוא משלב בעיבודיו נגיעות מודרניות לצד כלים מסורתיים, ויוצר גשר מוזיקלי בין העולמות.</p>
+          <p>שחר מתגורר במרכז הארץ עם משפחתו, וממשיך ליצור, להקליט ולהופיע – תמיד מתוך שליחות של שימור והחייאת המסורת התימנית המפוארת.</p>
+        </div>
+
+        <div class="index-about-preview-section__manuscript-footer">
+          <span class="index-about-preview-section__manuscript-seal">צלילי תימן</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section data-band-index="2" class="index-services-section" data-layout-spec="בית-services">
+  <div class="index-services-section__container">
+    <!-- Section Header -->
+    <div class="index-services-section__header">
+      <h2 class="index-services-section__title">שירותי פייטנות וחזנות</h2>
+      <p class="index-services-section__subtitle">מסורת תימנית אותנטית לכל אירוע – מליווי תפילות ועד חגיגות משפחתיות</p>
+      <div class="index-services-section__divider" aria-hidden="true">
+        <svg width="220" height="12" viewBox="0 0 220 12" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+          <line x1="0" y1="6" x2="88" y2="6" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round"></line>
+          <polygon points="110,1 119,6 110,11 101,6" fill="var(--secondary)"></polygon>
+          <line x1="132" y1="6" x2="220" y2="6" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round"></line>
+          <circle cx="92" cy="6" r="2.5" fill="var(--secondary)" opacity="0.5"></circle>
+          <circle cx="128" cy="6" r="2.5" fill="var(--secondary)" opacity="0.5"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="index-services-section__grid">
+      
+      <!-- Card 1: Wedding & Events Singer -->
+      <article class="index-services-section__card">
+        <div class="index-services-section__card-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <path d="M8 12h24v16H8z" stroke="var(--primary)" stroke-width="1.8" stroke-linejoin="round"></path>
+            <circle cx="20" cy="20" r="4" stroke="var(--secondary)" stroke-width="1.8"></circle>
+            <path d="M14 28l-4 8h20l-4-8" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="index-services-section__card-title">זמר לחתונה, אירועים וחינות</h3>
+        <p class="index-services-section__card-preview">שירה תימנית מרגשת בליווי תופים וכלים מסורתיים – הופעה מלאה המותאמת לאופי האירוע וקהל המוזמנים.</p>
+        <span class="index-services-section__card-hint">לחצו לפרטים מלאים</span>
+      </article>
+
+      <!-- Card 2: High Holy Days Cantor -->
+      <article class="index-services-section__card">
+        <div class="index-services-section__card-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <path d="M6 10h28v20H6z" stroke="var(--primary)" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M12 10V6h16v4" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16 20l3 3 5-6" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="index-services-section__card-title">חזן ופייטן לימים נוראים וחגי תשרי</h3>
+        <p class="index-services-section__card-preview">שליח ציבור בנוסח תימן בליווי מקהלה – תפילות ראש השנה, יום כיפור, סוכות ושמיני עצרת בעומק רוחני נדיר.</p>
+        <span class="index-services-section__card-hint">לחצו לפרטים מלאים</span>
+      </article>
+
+      <!-- Card 3: Bar Mitzvah Paytan -->
+      <article class="index-services-section__card">
+        <div class="index-services-section__card-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <rect x="8" y="14" width="24" height="18" rx="2" stroke="var(--primary)" stroke-width="1.8"></rect>
+            <path d="M14 14V8h12v6" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16 22h8" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M16 26h6" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <h3 class="index-services-section__card-title">פייטן לבר מצווה</h3>
+        <p class="index-services-section__card-preview">ליווי פיוטי מרגש במהלך העלייה לתורה, קריאת ההפטרה וסעודת המצווה – חוויה משפחתית בלתי נשכחת.</p>
+        <span class="index-services-section__card-hint">לחצו לפרטים מלאים</span>
+      </article>
+
+      <!-- Card 4: Torah Dedication Paytan -->
+      <article class="index-services-section__card">
+        <div class="index-services-section__card-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <path d="M10 8h20v24H10z" stroke="var(--primary)" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M14 8V4h12v4" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M18 16h4v8h-4z" fill="var(--secondary)" opacity="0.3" stroke="var(--secondary)" stroke-width="1.5"></path>
+            <path d="M14 16l4-4 4 4" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="index-services-section__card-title">פייטן להכנסת ספר תורה</h3>
+        <p class="index-services-section__card-preview">תהלוכת הכנסת ספר תורה חגיגית עם פיוטי שמחה, ריקודים ושירת הקהל – טקס מפואר ברוח תימן.</p>
+        <span class="index-services-section__card-hint">לחצו לפרטים מלאים</span>
+      </article>
+
+      <!-- Card 5: Shabbat Chatan Paytan -->
+      <article class="index-services-section__card">
+        <div class="index-services-section__card-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <circle cx="20" cy="16" r="8" stroke="var(--primary)" stroke-width="1.8"></circle>
+            <path d="M8 28h24" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M12 28v4h16v-4" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M16 20l2 2 4-4" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="index-services-section__card-title">פייטן לשבת חתן</h3>
+        <p class="index-services-section__card-preview">קבלת שבת ועריכת שולחן בליווי פיוטי שבת תימניים מסורתיים – אווירה משפחתית חמה ומרוממת.</p>
+        <span class="index-services-section__card-hint">לחצו לפרטים מלאים</span>
+      </article>
+
+      <!-- Card 6: Custom Ceremonies -->
+      <article class="index-services-section__card">
+        <div class="index-services-section__card-icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" data-element-type="icon" data-icon-type="svg">
+            <path d="M20 6v28" stroke="var(--primary)" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M12 14h16" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="20" cy="14" r="3" stroke="var(--secondary)" stroke-width="1.8"></circle>
+            <path d="M14 22h12" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="20" cy="22" r="3" stroke="var(--secondary)" stroke-width="1.8"></circle>
+            <path d="M16 30h8" stroke="var(--secondary)" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="20" cy="30" r="3" stroke="var(--secondary)" stroke-width="1.8"></circle>
+          </svg>
+        </div>
+        <h3 class="index-services-section__card-title">טקסים ואירועים מותאמים אישית</h3>
+        <p class="index-services-section__card-preview">בריתות, פדיון הבן, הילולות, חנוכת הבית ואירועי מורשת – תוכנית פיוטים ייחודית לכל אירוע.</p>
+        <span class="index-services-section__card-hint">לחצו לפרטים מלאים</span>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Bottom Paper-Cut Divider -->
+  <div class="index-services-section__divider-wrapper" aria-hidden="true" data-no-icon-edit="true">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,35 Q50,28 100,35 T200,30 Q250,35 300,28 T400,35 Q450,30 500,35 T600,28 Q650,35 700,30 T800,35 Q850,28 900,35 T1000,30 Q1050,35 1100,28 T1200,35 L1200,80 Z" fill="#1D1B18"></path>
+      <path d="M0,80 L0,42 Q50,36 100,42 T200,38 Q250,42 300,36 T400,42 Q450,38 500,42 T600,36 Q650,42 700,38 T800,42 Q850,36 900,42 T1000,38 Q1050,42 1100,36 T1200,42 L1200,80 Z" fill="#1D1B18" opacity="0.15"></path>
+    </svg>
+  </div>
+</section>
+
+<section data-band-index="3" class="index-media-section" data-layout-spec="בית-media">
+  <div class="index-media-section__container">
+    
+    <!-- YouTube Row -->
+    <div class="index-media-section__block">
+      <div class="index-media-section__header">
+        <h3 class="index-media-section__title">צפו בהופעות נבחרות</h3>
+        <p class="index-media-section__subtitle">רגעים מרגשים מתוך רסיטלים, אירועים והקלטות אולפן בערוץ היוטיוב</p>
+      </div>
+      <div class="index-media-section__grid index-media-section__grid--youtube">
+        
+        <!-- Video Card 1 -->
+        <a href="#" class="index-media-section__card index-media-section__card--video" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון ביוטיוב">
+          <div class="index-media-section__thumbnail">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-1" data-context="A wide cinematic still from a YouTube video showing Shahar Amram performing Yemenite Jewish liturgical music on stage with a traditional band, warm stage lighting, deep navy and gold color palette" width="600" height="340" src="/assets/site-index-media-image-1.webp" alt="הופעה חיה של שחר עמרם על הבמה">
+            <div class="index-media-section__play-overlay">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"></polygon></svg>
+            </div>
+          </div>
+          <div class="index-media-section__video-info">
+            <span class="index-media-section__video-title">פיוט "אדון עולם" – מופע חג</span>
+            <span class="index-media-section__video-meta">לפני 3 שבועות • 2.1K צפיות</span>
+          </div>
+        </a>
+
+        <!-- Video Card 2 -->
+        <a href="#" class="index-media-section__card index-media-section__card--video" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון ביוטיוב">
+          <div class="index-media-section__thumbnail">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-2" data-context="A YouTube thumbnail close-up of Shahar Amram singing passionately with a microphone, wearing a traditional Yemenite embroidered kippah, soft bokeh background with golden light" width="600" height="340" src="/assets/site-index-media-image-2.webp" alt="שחר עמרם שר פיוט תימני">
+            <div class="index-media-section__play-overlay">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"></polygon></svg>
+            </div>
+          </div>
+          <div class="index-media-section__video-info">
+            <span class="index-media-section__video-title">שבת חתן – מחרוזת שירי שבח</span>
+            <span class="index-media-section__video-meta">לפני חודש • 4.5K צפיות</span>
+          </div>
+        </a>
+
+        <!-- Video Card 3 -->
+        <a href="#" class="index-media-section__card index-media-section__card--video" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון ביוטיוב">
+          <div class="index-media-section__thumbnail">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-3" data-context="A YouTube video still of a Bar Mitzvah celebration, Shahar Amram leading the ceremony with the family, Torah scroll in the background, warm and festive atmosphere" width="600" height="340" src="/assets/site-index-media-image-3.webp" alt="שחר עמרם מופיע בבר מצווה">
+            <div class="index-media-section__play-overlay">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"></polygon></svg>
+            </div>
+          </div>
+          <div class="index-media-section__video-info">
+            <span class="index-media-section__video-title">הכנסת ספר תורה – פיוט "יונה מצאה"</span>
+            <span class="index-media-section__video-meta">לפני חודשיים • 1.8K צפיות</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- TikTok Row -->
+    <div class="index-media-section__block">
+      <div class="index-media-section__header">
+        <h3 class="index-media-section__title">רגעים מהטיקטוק</h3>
+        <p class="index-media-section__subtitle">קטעים קצרים מאחורי הקלעים, חזרות, ופידבקים מהקהל בזמן אמת</p>
+      </div>
+      <div class="index-media-section__grid index-media-section__grid--tiktok">
+        
+        <!-- TikTok Card 1 -->
+        <a href="#" class="index-media-section__card index-media-section__card--tiktok" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון בטיקטוק">
+          <div class="index-media-section__tiktok-thumb">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-4" data-context="A vertical TikTok-style portrait video still of Shahar Amram singing a capella in a stone courtyard, natural daylight, authentic Yemenite atmosphere" width="400" height="600" src="/assets/site-index-media-image-4.webp" alt="שחר עמרם שר בחצר אבן">
+            <div class="index-media-section__tiktok-badge">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
+              <span>12.4K</span>
+            </div>
+          </div>
+          <p class="index-media-section__tiktok-excerpt">חזרה לקראת ראש השנה – קטע מתוך "אחות קטנה" שתפו והפיצו זכות 🇮🇱🎵</p>
+        </a>
+
+        <!-- TikTok Card 2 -->
+        <a href="#" class="index-media-section__card index-media-section__card--tiktok" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון בטיקטוק">
+          <div class="index-media-section__tiktok-thumb">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-5" data-context="A vertical TikTok portrait video of a wedding hall, Shahar Amram singing and the crowd dancing joyfully, colorful lighting, energetic celebration vibe" width="400" height="600" src="/assets/site-index-media-image-5.webp" alt="שחר עמרם מלהיב את הקהל בחתונה">
+            <div class="index-media-section__tiktok-badge">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
+              <span>8.7K</span>
+            </div>
+          </div>
+          <p class="index-media-section__tiktok-excerpt">כשהקהל לא מפסיק לרקוד! תודה למשפחת כהן על ערב מדהים 💃🕺 #חתונה</p>
+        </a>
+
+        <!-- TikTok Card 3 -->
+        <a href="#" class="index-media-section__card index-media-section__card--tiktok" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון בטיקטוק">
+          <div class="index-media-section__tiktok-thumb">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-6" data-context="A vertical TikTok video of a close-up on a traditional Yemenite drum, hands playing rhythmic beats, warm candlelight ambiance, cultural music setting" width="400" height="600" src="/assets/site-index-media-image-6.webp" alt="תיפוף תימני מסורתי באווירה אינטימית">
+            <div class="index-media-section__tiktok-badge">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
+              <span>15.2K</span>
+            </div>
+          </div>
+          <p class="index-media-section__tiktok-excerpt">הצליל העתיק של תימן – ריתמוסים שעוברים מדור לדור 🥁✨ #מוזיקה_תימנית</p>
+        </a>
+
+        <!-- TikTok Card 4 -->
+        <a href="#" class="index-media-section__card index-media-section__card--tiktok" target="_blank" rel="noopener noreferrer" aria-label="צפו בסרטון בטיקטוק">
+          <div class="index-media-section__tiktok-thumb">
+            <img loading="lazy" decoding="async" data-placeholder="index-media-image-7" data-context="A vertical TikTok selfie video of Shahar Amram smiling and talking to the camera, holding a vintage microphone, home studio background with musical instruments" width="400" height="600" src="/assets/site-index-media-image-7.webp" alt="שחר עמרם מדבר אל המצלמה באולפן הביתי">
+            <div class="index-media-section__tiktok-badge">
+              <svg data-element-type="icon" data-icon-type="svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
+              <span>6.3K</span>
+            </div>
+          </div>
+          <p class="index-media-section__tiktok-excerpt">טיפ קטן לפייטנים מתחילים – איך מחזיקים את הסולם הנכון 🎤📖 #לימוד</p>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Divider: Dark ink to parchment gradient with gold line -->
+  <div class="index-media-section__divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dividerGrad-media" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1D1B18" stop-opacity="1"></stop>
+          <stop offset="60%" stop-color="#2A2520" stop-opacity="1"></stop>
+          <stop offset="100%" stop-color="#FCFAF5" stop-opacity="1"></stop>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="80" fill="url(#dividerGrad-media)"></rect>
+      <line x1="50" y1="72" x2="1150" y2="72" stroke="#C89B3C" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="8 4"></line>
+    </svg>
+  </div>
+</section>
+
+<section data-band-index="4" class="index-cta-section" data-layout-spec="בית-cta">
+  <div class="index-cta-section__bg-pattern"></div>
+  <div class="index-cta-section__ornament index-cta-section__ornament--tl" aria-hidden="true"></div>
+  <div class="index-cta-section__ornament index-cta-section__ornament--br" aria-hidden="true"></div>
+
+  <div class="index-cta-section__container">
+    <div class="index-cta-section__panel">
+      <div class="index-cta-section__panel-inner">
+        <h2 class="index-cta-section__heading">להזמין את צלילי תימן לאירוע שלכם</h2>
+        <p class="index-cta-section__description">
+          בין אם אתם מתכננים חתונה, בר מצווה, הכנסת ספר תורה, שבת חתן או תפילות לימים נוראים – שחר עמרם מביא עמו מסורת תימנית אותנטית, קול חם ונוכחות מרגשת המותאמת לאופי האירוע והקהילה.
+        </p>
+
+        <div class="index-cta-section__actions">
+          <a href="/contact" class="index-cta-section__btn index-cta-section__btn--primary">
+            <span>צרו קשר עכשיו</span>
+            <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4.167 10H15.833" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M10.833 5L15.833 10L10.833 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a href="/services" class="index-cta-section__btn index-cta-section__btn--secondary">
+            <span>לכל השירותים</span>
+            <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4.167 10H15.833" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M10.833 5L15.833 10L10.833 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+
+        <p class="index-cta-section__trust-line">
+          מתאים לאירועים משפחתיים, טקסים קהילתיים, תפילות חג ומועדי תשרי
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer" dir="rtl">
+  <div class="footer-container">
+    <div class="footer-top">
+      <!-- Company Info -->
+      <div class="footer-col footer-brand-col">
+        <img src="/assets/shahar-amram-tunes-of-yemen-music-entertainment-logo.webp" alt="שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen" class="logo">
+        <p class="footer-tagline">מביאים את צלילי תימן האותנטיים אל קדמת הבמה – מוזיקה, תרבות ושירה מהלב.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col footer-links-col">
+        <h4>ניווט מהיר</h4>
+        <ul class="footer-links">
+          <li><a href="/">בית</a></li>
+          <li><a href="/services">שירותים</a></li>
+          <li><a href="/about">אודות</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-col footer-contact-col">
+        <h4>צור קשר</h4>
+        <ul class="footer-contact">
+          <li>
+            <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+            <span class="contact-text"><a href="mailto:[business_email]">[business_email]</a></span>
+          </li>
+          <li>
+            <span class="contact-icon"><i class="fas fa-phone"></i></span>
+            <span class="contact-text"><a href="tel:[business_phone]">[business_phone]</a></span>
+          </li>
+          <li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+            <span class="contact-text">[business_address]</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Business Hours -->
+      <div class="footer-col footer-hours-col">
+        <h4>שעות פעילות</h4>
+        <ul class="footer-hours">
+          <li><a href="/"><span class="hours-day">ימים א'–ה'</span> <span class="hours-time">09:00–18:00</span></a></li>
+          <li><a href="/"><span class="hours-day">יום ו'</span> <span class="hours-time">09:00–13:00</span></a></li>
+          <li><a href="/"><span class="hours-day">שבת</span> <span class="hours-time">סגור</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-col footer-social-col">
+        <h4>עקבו אחרינו</h4>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" data-zappy-social-placeholder="true"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" data-zappy-social-placeholder="true"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp" data-zappy-social-placeholder="true"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ornamental Divider -->
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 שחר עמרם - צלילי תימן - Shahar Amram - Tunes of Yemen. כל הזכויות שמורות.</p>
+      <div class="footer-legal">
+        <a href="/privacy">מדיניות פרטיות</a>
+        <a href="/terms">תנאי שימוש</a>
+        <a href="/accessibility">נגישות</a>
+        <a href="https://zappy5.com" target="_blank" class="zappy-attribution">נוצר באמצעות Zappy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+</body>
+</html>
