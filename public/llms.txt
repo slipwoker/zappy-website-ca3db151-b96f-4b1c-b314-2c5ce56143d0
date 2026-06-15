@@ -7,33 +7,33 @@
 ## Pages
 
 ### בית
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app
+https://example.com
 התחברו לעומק הרוחני של המוזיקה התימנית עם הפייטן שחר עמרם. חזנות לימים נוראים, פיוטים לבר מצווה, שירת חתונה וחינה בליווי צלילי תימן אותנטיים. הזמינו את הקדושה והשמחה לאירוע שלכם עוד היום.
 
 ### שירותים
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/services
+https://example.com/services
 מחפש פייטן לימים נוראים, זמר לחינה או חזן לבר מצווה? שחר עמרם מגיש שירותי פיוט תימני, חזנות ושירת אירועים במסורת יהודי תימן. לחץ לצפייה בהיצע המלא והתאם את הקול המושלם לשמחה שלך.
 
 ### אודות
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/about
+https://example.com/about
 הכירו את שחר עמרם, פייטן ויוצר הנושא עמו את מורשת הפיוט התימני מדור לדור. ממזמורי שבת חתן ועד תפילות הימים הנוראים – גלו את האיש, הקול והשליחות המוזיקלית שמאחורי צלילי תימן.
 
 ### צור קשר
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/contact
+https://example.com/contact
 רוצה להזמין את שחר עמרם לחזנות, בר מצווה או חתונה? צור קשר עוד היום לתיאום תאריך, שאלות על רפרטואר תימני או הזמנת פיוט אישי. השאירו פרטים ונחזור אליכם מיד עם צלילי תימן מרגשים.
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/privacy
+https://example.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/terms
+https://example.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/accessibility
+https://example.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
@@ -43,8 +43,8 @@ Information about WCAG compliance and accessibility features.
 - (No contact details configured yet.)
 
 ### Contact form
-- URL: https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/contact
-- Endpoint: https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/api/email/contact-form
+- URL: https://example.com/contact
+- Endpoint: https://example.com/api/email/contact-form
 - Method: POST
 - Content-Type: application/json
 - Fields:
@@ -81,6 +81,6 @@ Music & Entertainment
 
 # Machine-readable feeds
 
-- Sitemap (XML): https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/sitemap.xml
-- Robots: https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/robots.txt
-- Flattened page text (for LLMs): https://shahar-amram-tunes-of-yemen-ca3db151.zappy5.app/llms-full.txt
+- Sitemap (XML): https://example.com/sitemap.xml
+- Robots: https://example.com/robots.txt
+- Flattened page text (for LLMs): https://example.com/llms-full.txt
